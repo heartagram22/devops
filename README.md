@@ -1,4 +1,11 @@
-Introduction
+
+# DevOps
+
+
+
+## Introduction
+
+
 This Terraform code provisions infrastructure in Azure for a DevOps project. It creates a resource group, a container registry, a virtual network with a subnet, and two virtual machines with network interfaces. The virtual machines run Ubuntu 16.04 and have Docker installed. The code also creates an agent pool for the container registry.
 
 Requirements
@@ -27,7 +34,9 @@ vm2_public_ip_address: The public IP address for the second virtual machine.
 Clean up
 Run terraform destroy to remove all the resources created by this code. This will remove all the resources provisioned by this code, so make sure you no longer need them before running the command.
 
-What the code does!
+
+## What code is about
+
 -The first block specifies the version of Terraform being used and the required Azure provider version.
 
 -The provider block specifies the Azure provider and any optional features. In this case, there are no additional features being enabled.
