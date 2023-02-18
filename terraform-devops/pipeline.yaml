@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    # Check that the installation was successful
+    my_command --version
+  displayName: 'Verify installation'
+
+jobs:
+- job: build_docker_image
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: docker build -t mydockerimage:latest .
+    displayName: 'Build Docker Image'

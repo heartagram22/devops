@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello from the second VM!
+  displayName: 'Run a script on the second VM'
+  target: 'mysecondvm'
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: DockerInstaller@0
+  displayName: 'Install Docker'
+  inputs:
+    dockerVersion: '20.10.9'
+
+- script: |
+    docker login <registry-name>.azurecr.io -u <registry-username> -p $(<registry-password-variable-name>)
+    docker pull <registry-name>.azurecr.io/<image-name>:<tag>
+    docker run -d -p 80:80 <registry-name>.azurecr.io/<image-name>:<tag>
+  displayName: 'Pull and run Docker image'

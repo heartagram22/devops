@@ -1,0 +1,28 @@
+Introduction
+This Terraform code provisions infrastructure in Azure for a DevOps project. It creates a resource group, a container registry, a virtual network with a subnet, and two virtual machines with network interfaces. The virtual machines run Ubuntu 16.04 and have Docker installed. The code also creates an agent pool for the container registry.
+
+Requirements
+Terraform 1.0 or later
+Azure subscription
+Azure CLI
+Usage
+Clone this repository to your local machine.
+Navigate to the directory where the repository is cloned.
+Run az login to authenticate with your Azure account.
+Run terraform init to initialize Terraform.
+Run terraform plan to preview the changes that will be made.
+Run terraform apply to apply the changes to your Azure subscription.
+Inputs
+location: The location where the resources will be created.
+vm_size: The size of the virtual machines.
+admin_username: The username for the virtual machines.
+admin_password: The password for the virtual machines.
+Outputs
+container_registry_name: The name of the container registry.
+container_registry_login_server: The login server for the container registry.
+container_registry_admin_username: The admin username for the container registry.
+container_registry_admin_password: The admin password for the container registry.
+vm1_public_ip_address: The public IP address for the first virtual machine.
+vm2_public_ip_address: The public IP address for the second virtual machine.
+Clean up
+Run terraform destroy to remove all the resources created by this code. This will remove all the resources provisioned by this code, so make sure you no longer need them before running the command.
